@@ -2,6 +2,15 @@ FROM php:7.2-apache
 
 RUN apt-get update && \
     apt-get install -y \
+        php7.2-gd \
+        php7.2-mcrypt \
+        php7.2-curl \
+        php7.2-intl \
+        php7.2-xsl \
+        php7.2-mbstring \
+        php7.2-openssl \
+        php7.2-zip \
+        php7.2-soap \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
