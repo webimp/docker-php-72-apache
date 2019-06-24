@@ -4,7 +4,8 @@ FROM php:7.2-apache
 RUN echo "nameserver 1.1.1.1" | tee /etc/resolv.conf > /dev/null
 
 # Add PHP 7.2 repo
-RUN apt-get install -y software-properties-common && \
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
     add-apt-repository ppa:ondrej/php
 
 RUN apt-get update && \
