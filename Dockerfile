@@ -1,5 +1,11 @@
 FROM php:7.2-apache
 
+# Cloudflare DNS
+RUN echo "nameserver 1.1.1.1" | tee /etc/resolv.conf > /dev/null
+
+# Add PHP 7.2 repo
+RUN add-apt-repository ppa:ondrej/php
+
 RUN apt-get update && \
     apt-get install -y \
         php-pear php7.2-mysql php7.2-zip php7.2-xml php7.2-mbstring php7.2-curl php7.2-json \
