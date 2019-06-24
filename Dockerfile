@@ -21,7 +21,9 @@ RUN buildDeps=" \
         libpng-dev \
         libpq-dev \
         libxml2-dev \
+        openssh-client \
         rsync \
+        wget \
     " \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y $buildDeps $runtimeDeps \
     && docker-php-ext-install bcmath bz2 calendar iconv intl mbstring mysqli opcache pdo_mysql pdo_pgsql pgsql soap zip \
