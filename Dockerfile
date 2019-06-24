@@ -4,7 +4,8 @@ FROM php:7.2-apache
 RUN echo "nameserver 1.1.1.1" | tee /etc/resolv.conf > /dev/null
 
 # Add PHP 7.2 repo
-RUN add-apt-repository ppa:ondrej/php
+RUN apt-get install -y software-properties-common && \
+    add-apt-repository ppa:ondrej/php
 
 RUN apt-get update && \
     apt-get install -y \
@@ -33,10 +34,9 @@ RUN apt-get update && \
         subversion \
         rsync \
         openssh-client \
+        composer \
         wget && \
-    rm -rf /var/lib/apt/lists/* && \
-    wget https://getcomposer.org/download/1.8.5/composer.phar -O /usr/local/bin/composer && \
-    chmod a+rx /usr/local/bin/composer
+    rm -rf /var/lib/apt/lists/*
 
 RUN ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
     docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu && \
