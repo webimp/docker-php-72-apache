@@ -95,7 +95,7 @@ RUN docker-php-ext-configure \
   zip --with-libzip
 
 # Enable PHP extensions.
-RUN phpExtensions = " \
+RUN phpExtensions=" \
         bcmath \
         bz2 \
         calendar \
