@@ -44,7 +44,7 @@ RUN buildDeps=" \
         sendmail \
         wget \
     " \
-    phpExtensions = " \
+    phpExtensions=" \
         bcmath \
         bz2 \
         calendar \
@@ -139,7 +139,7 @@ RUN phpExtensions = " \
     " \
     && docker-php-ext-enable $phpExtensions
 
-# Instal pecl dependencies.
+# Install pecl dependencies.
 RUN pecl install -o -f \
   geoip-1.1.1 \
   igbinary \
